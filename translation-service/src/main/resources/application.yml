@@ -1,0 +1,81 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: transaction-service
+  config:
+    import: optional:configserver:${CONFIG_SERVER_URL:http://localhost:8888}
+  datasource:
+    url: jdbc:h2:mem:transactions;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+  graphql:
+    graphiql:
+      enabled: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: all
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+      client:
+        config:
+          default:
+            connect-timeout: 2000
+            read-timeout: 4000
+  ai:
+    mcp:
+      server:
+        name: transaction-mcp-server
+        version: 1.0.0
+        type: SYNC
+
+# Tolérance aux pannes (Resilience4J) appliquée aux appels Feign vers account-service
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+        # Les erreurs métier 4xx ne comptent pas comme des pannes
+        ignore-exceptions:
+          - feign.FeignException$BadRequest
+          - feign.FeignException$NotFound
+          - feign.FeignException$Conflict
+          - feign.FeignException$UnprocessableEntity
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 5s
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761/eureka}
+  instance:
+    prefer-ip-address: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,circuitbreakers
+  health:
+    circuitbreakers:
+      enabled: true

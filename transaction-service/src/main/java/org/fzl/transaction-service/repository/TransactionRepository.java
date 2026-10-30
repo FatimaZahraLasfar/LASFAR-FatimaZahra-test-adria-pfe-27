@@ -1,6 +1,6 @@
-package org.fzl.translationservice.repository;
+package org.fzl.transactionservice.repository;
 
-import org.fzl.translationservice.entities.Transaction;
+import org.fzl.transactionservice.entities.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

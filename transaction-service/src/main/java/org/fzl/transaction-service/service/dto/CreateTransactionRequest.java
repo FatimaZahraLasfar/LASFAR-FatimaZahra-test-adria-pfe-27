@@ -1,4 +1,4 @@
-package org.fzl.translationservice.service.dto;
+package org.fzl.transactionservice.service.dto;
 
 import java.math.BigDecimal;
 import java.util.UUID;

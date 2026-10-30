@@ -1,4 +1,4 @@
-package org.fzl.translationservice.client;
+package org.fzl.transactionservice.client;
 
 
 import java.math.BigDecimal;

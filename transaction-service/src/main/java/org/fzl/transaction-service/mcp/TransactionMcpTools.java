@@ -1,12 +1,12 @@
-package org.fzl.translationservice.mcp;
+package org.fzl.transactionservice.mcp;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.fzl.translationservice.service.TransactionService;
-import org.fzl.translationservice.service.dto.CreateTransactionRequest;
-import org.fzl.translationservice.service.dto.TransferRequest;
+import org.fzl.transactionservice.service.TransactionService;
+import org.fzl.transactionservice.service.dto.CreateTransactionRequest;
+import org.fzl.transactionservice.service.dto.TransferRequest;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.stereotype.Component;

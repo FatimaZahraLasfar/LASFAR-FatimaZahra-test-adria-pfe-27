@@ -1,6 +1,6 @@
-package org.fzl.translationservice.config;
+package org.fzl.transactionservice.config;
 
-import org.fzl.translationservice.event.TransactionEventPublisher;
+import org.fzl.transactionservice.event.TransactionEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.kafka.clients.admin.NewTopic;

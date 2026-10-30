@@ -1,4 +1,4 @@
-package org.fzl.translationservice.client;
+package org.fzl.transactionservice.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package org.fzl.translationservice.exception;
+package org.fzl.transactionservice.exception;
 
 
 import org.springframework.http.HttpStatus;

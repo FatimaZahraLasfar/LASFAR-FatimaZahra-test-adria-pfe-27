@@ -1,4 +1,4 @@
-package org.fzl.translationservice.mcp;
+package org.fzl.transactionservice.mcp;
 
 import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;

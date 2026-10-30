@@ -1,4 +1,4 @@
-server:
+ï»¿server:
   port: 8082
 
 spring:
@@ -44,7 +44,7 @@ spring:
         version: 1.0.0
         type: SYNC
 
-# Tolérance aux pannes (Resilience4J) appliquée aux appels Feign vers account-service
+# TolÃ©rance aux pannes (Resilience4J) appliquÃ©e aux appels Feign vers account-service
 resilience4j:
   circuitbreaker:
     configs:
@@ -55,7 +55,7 @@ resilience4j:
         wait-duration-in-open-state: 10s
         permitted-number-of-calls-in-half-open-state: 3
         automatic-transition-from-open-to-half-open-enabled: true
-        # Les erreurs métier 4xx ne comptent pas comme des pannes
+        # Les erreurs mÃ©tier 4xx ne comptent pas comme des pannes
         ignore-exceptions:
           - feign.FeignException
   timelimiter:

@@ -1,4 +1,4 @@
-package org.fzl.translationservice.entities;
+package org.fzl.transactionservice.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

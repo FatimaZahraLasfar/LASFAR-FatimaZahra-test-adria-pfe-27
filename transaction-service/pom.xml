@@ -11,8 +11,8 @@
     <groupId>org.fzl</groupId>
     <artifactId>transaction-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>translation-service</name>
-    <description>translation-service</description>
+    <name>transaction-service</name>
+    <description>transaction-service</description>
     <url/>
     <licenses>
         <license/>

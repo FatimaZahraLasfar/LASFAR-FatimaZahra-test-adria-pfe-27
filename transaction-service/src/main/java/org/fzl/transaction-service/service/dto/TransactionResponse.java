@@ -1,4 +1,4 @@
-package org.fzl.translationservice.service.dto;
+package org.fzl.transactionservice.service.dto;
 import org.fzl.translationservice.entities.Transaction;
 
 import java.math.BigDecimal;

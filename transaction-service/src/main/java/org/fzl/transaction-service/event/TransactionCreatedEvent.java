@@ -1,4 +1,4 @@
-package org.fzl.translationservice.event;
+package org.fzl.transactionservice.event;
 
 import java.math.BigDecimal;
 import java.time.Instant;

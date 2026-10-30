@@ -1,4 +1,4 @@
-# Bank Platform — Épreuve technique ADRIA / ENSET (parties A à G)
+# Bank Platform — Épreuve technique ADRIA / ENSET 
 
 Plateforme bancaire micro-services : Spring Boot 3.5, Spring Cloud 2025.0, Spring AI 1.0 (MCP), Kafka, Angular.
 
@@ -25,13 +25,10 @@ JDK 21, Maven 3.9+, Node 20+, Docker (pour Kafka), et une clé d'API LLM compati
 ## Démarrage
 
 ```bash
-# 1. Kafka
-docker compose -f docker-compose.infra.yml up -d
-
-# 2. Compilation
+# 1. Compilation
 mvn clean package
 
-# 3. Services, dans cet ordre (un terminal chacun)
+# 2. Services, dans cet ordre (un terminal chacun)
 java -jar config-service/target/config-service-1.0.0.jar
 java -jar discovery-service/target/discovery-service-1.0.0.jar
 java -jar account-service/target/account-service-1.0.0.jar
@@ -39,18 +36,10 @@ java -jar transaction-service/target/transaction-service-1.0.0.jar
 java -jar event-consumer-service/target/event-consumer-service-1.0.0.jar
 java -jar gateway-service/target/gateway-service-1.0.0.jar
 
-# 4. Chatbot (nécessite un LLM)
-export OPENAI_API_KEY=sk-...
-# export OPENAI_BASE_URL=https://api.groq.com/openai   OPENAI_MODEL=llama-3.3-70b-versatile   (Groq)
-# export OPENAI_BASE_URL=http://localhost:11434        OPENAI_MODEL=llama3.1                  (Ollama)
-java -jar chatbot-service/target/chatbot-service-1.0.0.jar
-
-# 5. Client Angular
+# 3. Client Angular
 cd bank-client && npm install && npm start      # http://localhost:4200
 ```
 
-Le chatbot se connecte aux serveurs MCP au démarrage : `account-service` et `transaction-service`
-doivent donc être démarrés avant lui.
 
 ## Points d'accès utiles
 
@@ -65,8 +54,3 @@ doivent donc être démarrés avant lui.
 - `tests.http` : 25 scénarios (nominal, règles métier, virement, GraphQL, panne, chatbot).
 - `mvn test` : tests unitaires des règles métier de `transaction-service`.
 
-## Notes
-
-- Le solde est un `double` car c'est le modèle imposé par l'énoncé ; les montants de transaction sont en `BigDecimal`.
-- Les bases sont H2 en mémoire : les données de démonstration sont recréées à chaque démarrage de `account-service`.
-- Keycloak (cité dans le contexte) n'est pas inclus : il ne fait pas partie des parties A à G demandées.

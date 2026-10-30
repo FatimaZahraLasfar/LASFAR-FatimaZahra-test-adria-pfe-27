@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>org.fzl</groupId>
-    <artifactId>translation-service</artifactId>
+    <artifactId>transaction-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>translation-service</name>
     <description>translation-service</description>

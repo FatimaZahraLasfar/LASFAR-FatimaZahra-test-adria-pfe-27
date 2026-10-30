@@ -6,7 +6,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-public class TranslationServiceApplication {
+public class TransactionServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TranslationServiceApplication.class, args);

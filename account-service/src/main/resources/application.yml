@@ -17,6 +17,16 @@ spring:
   h2:
     console:
       enabled: true
+  graphql:
+    graphiql:
+      enabled: true
+  ai:
+    mcp:
+      server:
+        name: account-mcp-server
+        version: 1.0.0
+        type: SYNC
+
 eureka:
   client:
     service-url:
